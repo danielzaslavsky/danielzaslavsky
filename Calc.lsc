@@ -55,4 +55,49 @@ class GettersTest {
   }
 
 }
+ int j = 0;
+            for (int i = 0; i < prevLvlHashes.length; i = i + 2, j++) {
 
+                // If there are at least two elements remaining
+                if (prevLvlHashes.length - i > 1) {
+
+                    // Calculate a digest of the concatenated nodes
+                    md.reset();
+                    md.update(prevLvlHashes[i]);
+                    md.update(prevLvlHashes[i + 1]);
+                    currLvlHashes[j] = md.digest();
+
+                } else { // Take care of remaining odd chunk
+                    currLvlHashes[j] = prevLvlHashes[i];
+                }
+            }
+
+            prevLvlHashes = currLvlHashes;
+        }
+
+        return prevLvlHashes[0];
+    }
+
+    /**
+     * Returns the hexadecimal representation of the input byte array
+     * 
+     * @param data
+     *            a byte[] to convert to Hex characters
+     * @return A String containing Hex characters
+     */
+    public static String toHex(byte[] data) {
+        StringBuilder sb = new StringBuilder(data.length * 2);
+
+        for (int i = 0; i < data.length; i++) {
+            String hex = Integer.toHexString(data[i] & 0xFF);
+
+            if (hex.length() == 1) {
+                // Append leading zero.
+                sb.append("0");
+            }
+            sb.append(hex);
+        }
+        return sb.toString().toLowerCase();
+    }
+}
+ 
