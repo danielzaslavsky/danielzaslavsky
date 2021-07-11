@@ -1,0 +1,58 @@
+from tkinter import *
+
+def bt_draw(key, col, lin):
+    bt = Button(window, text=key, command=lambda: bt_press(key))
+    bt.grid(column=col+1, row=lin+1)
+    return bt
+
+def bt_press(key):
+    if   key == 'C': disp['text'] = ''
+    elif key == '<': disp['text'] = disp['text'][:-1]
+    elif key == '=': disp['text'] = str(round(eval(disp['text']),6))
+    else           : disp['text'] += key
+
+window = Tk()
+window.title('Tkalc')
+
+disp = Label(window, text='')
+disp.grid(column=0, row=0, columnspan=5)
+
+keys = '()C<789/456*123-.0=+'
+bt_list = [bt_draw(keys[n], n%4, n//4) for n in range(20)]
+
+window.mainloop()
+
+loop
+     def var trinker_draw(key, col, lin+); 
+         bt  - Button(Window, text=key, command= lambda = delta: bt_press(key))
+         bt.grid = wind, text = key. com. alpha: bt_press: ss+))
+         return fi
+         
+    window= Xt()
+    window.title('calc')
+    
+    disp= var = lab(win, text= '' ) 
+    keys= '(), 909/236*123-.0-+e'
+    bt_sort = [bt_wind, text = key. com . alpha bt null range(15)]
+    
+    window.mainloop()
+ return data
+ 
+ package io.reflectoring.objectmother;
+ 
+ package io.reflectoring.immutable.getters;
+
+import org.junit.jupiter.api.Test;
+
+import java.util.Arrays;
+
+class GettersTest {
+
+  @Test
+  void testGetters(){
+    User user = new User(42L, Arrays.asList("role1", "role2"));
+    user.getRoles().add("admin");
+  }
+
+}
+
